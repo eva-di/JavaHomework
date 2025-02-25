@@ -44,5 +44,6 @@ public class Auto {
         if (ride >= 5) {
             System.out.println("После 5 поездок еду на техосмотр!");
         }
+        ride = 0;
     }
 }
