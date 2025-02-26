@@ -12,15 +12,19 @@ public class MagicArray {
         this.array = new int[10]; // [0, 0, 0, ...]
     }
 
+    // Todo homework
     public MagicArray (int[] array) {
-        // Todo homework
+
+            this.array = array;
+            this.cursor = array.length;
+
     }
 
     // Добавление в массив одного элемента
     void add(int value) {
 
         //проверка! Есть ли свободное место во внутреннем массиве!
-        // Если места нет - нужно добавать место
+        // Если места нет - нужно добавить место
 
         if (cursor == array.length) {
             //расширить внутренний массив перед добавлением нового значения
@@ -142,29 +146,34 @@ public class MagicArray {
                 // Значения совпали. Возвращаю индекс
                 return i;
             }
-
         }
         // Если сюда мы попадем, если ни одно значение в массиве не совпало
         return -1;
     }
-    // Удаление элемента по начению. Возвращает boolean
+    // Удаление элемента по значению. Возвращает boolean
 
     // Индекс последнего вхождения
     // [1, 100. 5, 100, 24, 0, 100] -> lastIndexOf(100) -> 6 (запоминаем значение, перезапоминаем, если нашли/ не нашли)
     int lastIndexOf(int value) {
         // Todo Homework
+        for (int i = cursor; i <= cursor ; i--) {
+            if (array[i] == value) {
+                return i;
+            }
+        }
         return -1;
     }
 
-    //Удаление по значению
+    // Todo homework
+    // Удаление по значению
     boolean removeByValue (int value) {
-        // Todo homework
-        return false;
-    }
+
+        return remove(indexOf(value)) == value;
+
 
     // int[] findAllValues(int value) {
         // todo homework optional***
-   // }
+   }
 
 
     void test() {
@@ -185,7 +194,7 @@ public class MagicArray {
 8. Удаление по значению из массива. Возвращал boolean. Если удалил - true, если нет - false
 9. Поиск по значению. Возвращать индекс первого вхождения элемента
 10. Индекс последнего вхождения
-11. Конструктор, принимающий обычный массив. Создать магический массив с элементами
+11. Конструктор, принимающий обычный массив. Создать магический массив с элементами из этого массива
 
 
  */

@@ -56,6 +56,26 @@ public class Les22Main {
             System.out.println("Вернулся отрицательный индекс. Такого значения в массиве нет.");
         }
 
+        System.out.println("Индекс последнего вхождения = " + magic.lastIndexOf(20));
+        System.out.print("Внутренний массив: " + magic.toString());
+
+        System.out.println("\nУдаление элемента: " + magic.removeByValue(500));
+        System.out.println("Новый массив после удаления элемента: " + magic.toString());
+
+        MagicArray newMagic = new MagicArray(new int [] {});
+        System.out.println(newMagic.toString());
+
+        MagicArray newMagic2 = new MagicArray(new int [] {1, 2, 3, 999});
+        System.out.println(newMagic2.toString());
+
+
+
+
+
+
+
     }
+
+
 
 }
