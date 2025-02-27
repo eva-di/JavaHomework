@@ -8,7 +8,7 @@ public class MagicArrayEncaps2 {
 
     // методы, расширяющие функционал массива
 
-    private MagicArrayEncaps2() {
+    public MagicArrayEncaps2() {
         this.array = new int[10]; // [0, 0, 0, ...]
     }
 
