@@ -2,17 +2,17 @@ package homework_23;
 
 import java.util.Arrays;
 
-public class MagicArrayEncaps {
+public class MagicArrayEncaps2 {
     private int[] array; // null
     private int cursor; // по умолчанию он получит значение = 0
 
     // методы, расширяющие функционал массива
 
-    private MagicArrayEncaps() {
+    private MagicArrayEncaps2() {
         this.array = new int[10]; // [0, 0, 0, ...]
     }
 
-    public MagicArrayEncaps(int[] array) {
+    public MagicArrayEncaps2(int[] array) {
         if (array == null || array.length == 0) {
             this.array = new int[10];
         } else {

@@ -2,12 +2,12 @@ package homework_23;
 
 import java.util.Arrays;
 
-public class ArrayEncapsTest {
+public class ArrayEncapsTest2 {
     public static void main(String[] args) {
 
         int[] test = {1, 2, 3, 4, 5};
 
-        MagicArrayEncaps magic = new MagicArrayEncaps(test);
+        MagicArrayEncaps2 magic = new MagicArrayEncaps2(test);
         // magic.add(10); // после добавления элемента,
         // происходит расширение массива и проблема ссылки решается
 
