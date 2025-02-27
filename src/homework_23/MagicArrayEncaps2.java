@@ -23,7 +23,7 @@ public class MagicArrayEncaps2 {
     }
 
     // Добавление в массив одного элемента
-    void add(int value) {
+    public void add(int value) {
 
         //проверка! Есть ли свободное место во внутреннем массиве!
         // Если места нет - нужно добавить место
@@ -59,7 +59,7 @@ public class MagicArrayEncaps2 {
 
     // Добавление в массив нескольких элементов
 
-    void add(int ... numbers) { // может принять любое количество int
+    public void add(int ... numbers) { // может принять любое количество int
         // Последовательность (секвенция)
         // c numbers я могу обращаться точно так же как со ссылкой на ма массив int
         System.out.println("Принял несколько int: " + numbers.length);
@@ -86,12 +86,12 @@ public class MagicArrayEncaps2 {
 
     }
     // Текущее кол-во элементов в массиве
-    int size() {
+    public int size() {
         return cursor;
     }
 
     // Возвращает значение по индексу
-    int get (int index) {
+    public int get (int index) {
         // Проконтролировать входящий индекс
 
         if (index >= 0 && index < cursor) {
@@ -108,7 +108,7 @@ public class MagicArrayEncaps2 {
     }
 
     // Удалить элемент по индексу. Вернуть старое значение
-    int remove(int index) {
+    public int remove(int index) {
         /*
         1.Проверка индекса на валидность
         2. Удалить значение по индексу
@@ -138,7 +138,7 @@ public class MagicArrayEncaps2 {
 
     // Поиск по значению. Возвращать индекс.
     // [1, 100, 5, 24, 0] -> Найди число indexOf(5) = 2, indexOf(50) = -1; (несуществующий индекс)
-    int indexOf (int value) {
+    public int indexOf (int value) {
         // Перебираю все значимые элементы
         // Если элемент равен искомому - вернтуь индекс такого элемента
         // Если перебрал все элементы - не нашел совпадений - вернуть -1
@@ -156,7 +156,7 @@ public class MagicArrayEncaps2 {
 
     // Индекс последнего вхождения
     // [1, 100. 5, 100, 24, 0, 100] -> lastIndexOf(100) -> 6 (запоминаем значение, перезапоминаем, если нашли/ не нашли)
-    int lastIndexOf(int value) {
+    public int lastIndexOf(int value) {
        for (int i = cursor - 1; i >= 0; i--) {
             if (array[i] == value) return i;
 
@@ -181,7 +181,7 @@ public class MagicArrayEncaps2 {
     не пытаемся удалить, возвращаем false
     3. Если элемент найден - удалить - вернуть true
      */
-    boolean removeByValue (int value) {
+    public boolean removeByValue (int value) {
 
         int index = indexOf(value);
         if (index < 0) return false;
