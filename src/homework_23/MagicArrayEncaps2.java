@@ -18,6 +18,7 @@ public class MagicArrayEncaps2 {
         } else {
             this.array = new int [array.length * 2];
             // int numbers может принять ссылку на массив int []
+
             add(array); // переиспользуем код
         }
     }
@@ -204,7 +205,7 @@ public class MagicArrayEncaps2 {
        return result;
    }
 
-    private void test() {
+    public void test() {
         System.out.println(Arrays.toString(array));
     }
 
