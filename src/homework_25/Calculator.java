@@ -14,14 +14,26 @@ package homework_25;
 - Методы для вычисления длины окружности и площади круга, принимающий радиус и возвращающий результат.
 - Константу (число Пи)
  */
-public class Calculator {
 
+//@ геттеры сеттеры для всех полей,
+// сгенерируй пустой конструктор
+
+public class Calculator {
+/*
+ПОСЛЕДОВАТЕЛЬНОСТЬ ОФОРМЛЕНИЯ КОДА:
+
+1. Поля класса, в том числе константы
+2. Блоки инициализации, если есть
+3. Конструктор/ы , если есть
+4. Методы (статические и нестатические обычно не разделяются)
+
+ */
     public static final double PI = Math.PI;
 
     public static double lengthCircumference(double radius) {
         if (radius <= 0) {
             System.out.print("Ошибка! Неверный радиус! ");
-            return 0.0;
+            return 0.0; // Integer.MAX_VALUE;
         }
         return 2 * PI * radius;
 
@@ -29,9 +41,9 @@ public class Calculator {
     public static double areaCircle(double radius) {
         if (radius <= 0) {
             System.out.print("Ошибка! Неверный радиус! ");
-            return 0.0;
+            return 0.0; // Integer.MAX_VALUE;
         }
-        return PI * radius * radius;
+        return PI * radius * radius; // Pi * r ^ 2 (возведение в степень)
 
     }
 
