@@ -73,7 +73,7 @@ public class Dog {
         }
     }
 
-    public void jumpBarrier(int barrierHeight) {
+    public boolean jumpBarrier(int barrierHeight) {
         if (barrierHeight < 0) {
             System.out.println("К сожалению барьер сломан. Высота барьера меньше 0...");
         }
@@ -88,6 +88,7 @@ public class Dog {
 
         }
 
+        return false;
     }
 
     public String getName() {

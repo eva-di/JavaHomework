@@ -1,4 +1,4 @@
-package homework_26;
+package homework_26.stationary;
 
 public class Pen extends Stationary {
 

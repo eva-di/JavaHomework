@@ -1,4 +1,4 @@
-package homework_26;
+package homework_26.shapes;
 /*
 Task 1
 Иерархия классов “Фигуры”
@@ -43,15 +43,36 @@ public class Shapes {
     protected String name;
     private String colour;
 
+    public Shapes(String name) {
+        String colour = "black";
+    }
+
     public Shapes(String name, String colour) {
         this.name = name;
         this.colour = colour;
     }
 
-    public String displayInfo() {
-        return colour + " " + name;
+    public void displayInfo() {
+        System.out.println("shape: " + name + ", colour: " + colour);;
 
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getColour() {
+        return colour;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    //    public String displayInfo() {
+//        return colour + " " + name;
+//
+//    }
 
     public void setColour(String colour) {
         this.colour = colour;

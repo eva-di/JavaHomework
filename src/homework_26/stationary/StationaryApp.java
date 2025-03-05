@@ -1,4 +1,4 @@
-package homework_26;
+package homework_26.stationary;
 
 public class StationaryApp {
     public static void main(String[] args) {

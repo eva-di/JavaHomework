@@ -1,4 +1,5 @@
-package homework_26;
+package homework_26.shapes;
+
 /*
 width и height типа double, которые хранят размеры прямоугольника.
 Создайте метод setDimensions(double width, double height),
@@ -16,7 +17,19 @@ public class Rectangle extends Shapes {
         this.height = height;
     }
 
+    public Rectangle(String name, double width, double height) {
+        super(name);
+        this.width = width;
+        this.height = height;
+    }
+    public void setDimentions(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
     public double calculateArea() {
+        double area = width * height;
+        System.out.println("Area: " + area);
         return width * height;
     }
 
