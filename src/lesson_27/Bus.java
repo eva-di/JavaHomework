@@ -119,6 +119,28 @@ public class Bus {
 
     }
 
+    public boolean dropPassenger(Passenger passenger) {
+        if (passenger == null) return false;
+        if (countPassengers > 0) {
+
+        if (!isPassengerInBus(passenger)) {
+
+            System.out.printf("Пассажира с id %d нет в автобусе с id %d\n", passenger.getId(), this.id);
+            return false;
+        }
+            for (int i = 0; i < countPassengers; i++) {
+        passengers[passenger.getId()] = passenger;
+        countPassengers--;
+
+            }
+        }
+        System.out.printf("Пассажир с id %d вышел из автобуса %d\n", passenger.getId(), this.id);
+        return true;
+    }
+
+
+
+
 
     private boolean isPassengerInBus(Passenger passenger) {
         for (int i = 0; i < countPassengers; i++) {

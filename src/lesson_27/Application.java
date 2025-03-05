@@ -1,5 +1,7 @@
 package lesson_27;
 
+import java.util.SortedMap;
+
 public class Application {
     public static void main(String[] args) {
 
@@ -32,6 +34,7 @@ public class Application {
 
         bus.showListPassengers();
         System.out.println(bus.toString());
+        bus.dropPassenger(john);
 
     }
 }
