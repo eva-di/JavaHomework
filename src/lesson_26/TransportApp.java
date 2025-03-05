@@ -28,6 +28,11 @@ public class TransportApp {
         System.out.println(bus2.takePassenger());
         System.out.println(bus2.takePassenger());
         System.out.println(bus2.takePassenger());
+        System.out.println(bus2.dropPassengers());
+        System.out.println(bus2.dropPassengers());
+        System.out.println(bus2.dropPassengers());
+        System.out.println(bus2.dropPassengers());
+        System.out.println(bus2.dropPassengers());
 
     }
 }

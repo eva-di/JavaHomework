@@ -62,7 +62,13 @@ public class Bus extends Vehicle {
 
     // Todo HW: Метод высадки пассажиров из автобуса
     public boolean dropPassengers() {
-        // Главная задача - не уйти в минус
-        return false;
+        if (countPassengers > 0) {
+            countPassengers--; //Главная задача - не уйти в минус
+            System.out.println("Пассажир вышел из автобуса " + model);
+            return true;
+        }
+            System.out.printf("В автобусе %s нет пассажиров\n", model);
+            return false;
+
     }
 }
