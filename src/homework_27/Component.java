@@ -10,8 +10,8 @@ package homework_27;
 
 public class Component {
 
-    private String brand;
-    private String model;
+    private final String brand;
+    private final String model;
 
     public Component(String brand, String model) {
         this.brand = brand;
@@ -19,7 +19,7 @@ public class Component {
     }
 
     public String toString () {
-        return brand + " " + model;
+        return "Component: " + brand + "model: " + model;
     }
 
 
@@ -31,11 +31,6 @@ public class Component {
         return model;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
+
 }

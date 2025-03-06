@@ -12,10 +12,10 @@ public class Storage extends Component {
 
     }
 
-    public String toString() {
-        return String.format("Накопитель: " + super.toString() + ", объем: " + volume + " GB");
-
-    }
+//    public String toString() {
+//        return String.format("Накопитель: " + super.toString() + ", объем: " + volume + " GB");
+//
+//    }
 
 
 

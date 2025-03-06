@@ -10,7 +10,7 @@ public class Processor extends Component {
 
     }
 
-    public String toString() {
-        return String.format("Процессор: " + super.toString() + ", частота процессора: " + frequency + " GHz");
-    }
+//    public String toString() {
+//        return String.format("Процессор: " + super.toString() + ", частота процессора: " + frequency + " GHz");
+//    }
 }
