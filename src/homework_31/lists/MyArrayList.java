@@ -1,46 +1,37 @@
-package homework_23;
+package homework_31.lists;
+
+import homework_31.lists.MyList;
 
 import java.util.Arrays;
 
-public class MagicArrayEncaps2 {
-    private int[] array; // null
+
+
+public class MyArrayList <T> implements MyList<T> {
+    private T[] array; // null
     private int cursor; // по умолчанию он получит значение = 0
 
     // методы, расширяющие функционал массива
+    @SuppressWarnings("unchecked") // Подавляю предупреждения компилятора о непроверяемом приведении типа
+    public MyArrayList() {
+        // Стирание типов. Невозможно создать объект типа Т
+        // this.array = new T[10];
+        this.array = (T[]) new Object[10];
 
-    public MagicArrayEncaps2() {
-
-        this.array = new int[10]; // [0, 0, 0, ...]
     }
 
-    public MagicArrayEncaps2(int[] array) {
+    public MyArrayList(T[] array) {
         if (array == null || array.length == 0) {
-            this.array = new int[10];
+            this.array = (T[]) new Object[10];
         } else {
-            this.array = new int [array.length * 2];
+            this.array = (T[]) new Object[array.length * 2];
             // int numbers может принять ссылку на массив int []
 
-            add(array); // переиспользуем код
+            add((T) array); // переиспользуем код
         }
     }
 
-    // Добавление в массив одного элемента
-    public void add(int value) {
-
-        //проверка! Есть ли свободное место во внутреннем массиве!
-        // Если места нет - нужно добавить место
-
-        if (cursor == array.length) {
-            //расширить внутренний массив перед добавлением нового значения
-            expandArray();
-        }
-
-        array[cursor] = value;
-        cursor++;
-
-    }
     // Метод динамического расширения массива
-     private void expandArray() {
+    private void expandArray() {
         System.out.println("Расширяем внутренний массив! Курсор равен " + cursor);
         /*
         1. Создать новый массив бОльшего размера (в 2 раза больше)
@@ -49,7 +40,7 @@ public class MagicArrayEncaps2 {
          */
 
         // 1.
-        int[] newArray = new int[array.length * 2];
+        T[] newArray = (T[]) new Object[array.length * 2];
         // 2.
         for (int i = 0; i < cursor; i++) {
             newArray[i] = array[i];
@@ -61,18 +52,7 @@ public class MagicArrayEncaps2 {
 
     // Добавление в массив нескольких элементов
 
-    public void add(int ... numbers) { // может принять любое количество int
-        // Последовательность (секвенция)
-        // c numbers я могу обращаться точно так же как со ссылкой на ма массив int
-        System.out.println("Принял несколько int: " + numbers.length);
-        System.out.println(Arrays.toString(numbers));
-        System.out.println("У каждого инта есть индекс как в массиве: " + numbers[0]);
 
-        // Перебираю все значения. ДЛя каждого вызываю метод add()
-        for (int i = 0; i < numbers.length; i++) {
-            add(numbers[i]);
-        }
-    }
     // Возвращает строковое представление массива
     // [5, 20, 45]
     public String toString() {
@@ -87,13 +67,34 @@ public class MagicArrayEncaps2 {
         return result;
 
     }
+
+    @Override
+    public void add(T value) {
+        if (cursor == array.length) {
+            expandArray();
+        }
+        array[cursor] = (T) value;
+        cursor++;
+    }
+
+    @Override
+    public void addAll(T... values) {
+        System.out.println("Принял несколько int: " + values.length);
+        System.out.println(Arrays.toString(values));
+        System.out.println("У каждого инта есть индекс как в массиве: " + values[0]);
+
+        // Перебираю все значения. ДЛя каждого вызываю метод add()
+        for (int i = 0; i < values.length; i++) {
+            add(values[i]);
+        }
+    }
     // Текущее кол-во элементов в массиве
     public int size() {
         return cursor;
     }
 
     // Возвращает значение по индексу
-    public int get (int index) {
+    public T get (int index) {
         // Проконтролировать входящий индекс
 
         if (index >= 0 && index < cursor) {
@@ -104,13 +105,22 @@ public class MagicArrayEncaps2 {
         //
         // Код, если индекс не корректный
         // Хорошего решения нет
-        return-2_147_483_647;
+        return null; // !!!
         // Todo Поправить обработку некорректного индекса
 
     }
 
+    @Override
+    public void set(int index, T value) {
+        if (index < 0 || index >= cursor) {
+            return;
+        }
+        array[index] = value;
+
+    }
+
     // Удалить элемент по индексу. Вернуть старое значение
-    public int remove(int index) {
+    public T remove(int index) {
         /*
         1.Проверка индекса на валидность
         2. Удалить значение по индексу
@@ -119,34 +129,36 @@ public class MagicArrayEncaps2 {
          */
         if (index >= 0 && index < cursor) {
             // Логика удаления
-            int value = array[index]; // Запомнить старое значение
+            T value = array[index]; // Запомнить старое значение
 
             // Перебираю элементы начиная с индекса и перезаписываю значение из ячейки справа
-            // Fixme
             for (int i = index; i < cursor -1; i++) { // Граница перебора индексов
                 array[i] = array[i + 1];
-
             }
             cursor--;
-
             return value; // Вернуть старое значение
 
         } else {
             // Индекс невалидный
             // Todo поправить возвращаемое значение
-            return-2_147_483_647;
+            return null; // Работает только с ссылочными типами?!
         }
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return cursor == 0;
     }
 
     // Поиск по значению. Возвращать индекс.
     // [1, 100, 5, 24, 0] -> Найди число indexOf(5) = 2, indexOf(50) = -1; (несуществующий индекс)
-    public int indexOf (int value) {
+    public int indexOf (T value) {
         // Перебираю все значимые элементы
         // Если элемент равен искомому - вернтуь индекс такого элемента
         // Если перебрал все элементы - не нашел совпадений - вернуть -1
 
         for (int i = 0; i < cursor; i++) {
-            if (array[i] == value) {
+            if (array[i].equals(value)) {
                 // Значения совпали. Возвращаю индекс
                 return i;
             }
@@ -158,12 +170,19 @@ public class MagicArrayEncaps2 {
 
     // Индекс последнего вхождения
     // [1, 100. 5, 100, 24, 0, 100] -> lastIndexOf(100) -> 6 (запоминаем значение, перезапоминаем, если нашли/ не нашли)
-    public int lastIndexOf(int value) {
+
+    public int lastIndexOf(T value) {
        for (int i = cursor - 1; i >= 0; i--) {
-            if (array[i] == value) return i;
+            if (array[i].equals(value)) return i;
 
         }
         return -1;
+    }
+
+    @Override
+    public boolean contains(T value) {
+        return indexOf(value) != -1;
+
     }
         /*int index = -1;
         for (int i = 0; i < cursor; i--) {
@@ -183,28 +202,33 @@ public class MagicArrayEncaps2 {
     не пытаемся удалить, возвращаем false
     3. Если элемент найден - удалить - вернуть true
      */
-    public boolean removeByValue (int value) {
 
+    @Override
+    public boolean remove(T value) {
         int index = indexOf(value);
         if (index < 0) return false;
         // В эту строчку кода попадем, только при index => 0
         remove(index);
         return true;
+    }
 
 
 
     // int[] findAllValues(int value) {
         // todo homework optional***
-   }
+ //  }
    // Todo homework_23
 // массив, состоящий из элементов магического массива
-   public int[] toArray() {
-       int[] result = new int[cursor];
+
+    @Override
+    public T[] toArray() {
+       T[] result = (T[]) new Object[cursor];
        for (int i = 0; i < cursor; i++) {
            result[i] = array[i];
        }
        return result;
    }
+
 
     public void test() {
         System.out.println(Arrays.toString(array));

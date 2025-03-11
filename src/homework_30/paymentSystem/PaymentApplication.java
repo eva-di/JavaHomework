@@ -3,9 +3,9 @@ package homework_30.paymentSystem;
 public class PaymentApplication {
     public static void main(String[] args) {
 
-        BankAccount accountEuro = new BankAccount("1234567", 3000);
+        BankAccount accountEuro = new BankAccount("1234567");
         ElectronicWallet walletDollar = new ElectronicWallet("34584067", 2500);
-        BankAccount accountEuro2 = new BankAccount("234563456", 2000);
+        BankAccount accountEuro2 = new BankAccount("234563456");
         ElectronicWallet walletDollar2 = new ElectronicWallet("456456789", 500);
 
         accountEuro.withdrawMoney(3500);

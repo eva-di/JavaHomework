@@ -23,6 +23,7 @@ public class ElectronicWallet implements PaymentSystem {
 
     @Override
     public void depositTransfer(double amount) {
+        if (amount < 0) return;
         currentBalanceDollars -= amount * RATE;
         System.out.printf("На счет %s поступило: %.2f€.\n", accountNumber, amount);
         checkBalance();
