@@ -56,6 +56,87 @@ public class Wrappers {
 
         // Общие (или схожие) методы, которыми обладают классы-обертки:
 
+        // .valueOf() - преобразует явным образом примитив или строку в объект типа обертки
+
+        Integer e = Integer.valueOf(127);
+        Integer f = Integer.valueOf("127");
+        System.out.println(e + " | " + f);
+
+        Double dbl = Double.valueOf(154.5);
+        System.out.println("dbl: " + dbl);
+
+        Boolean bool = Boolean.valueOf("true");
+        System.out.println("bool: " + bool);
+
+        // parseXXX() - преобразует строку в соответствующий примитив
+
+        double dblP = Double.parseDouble("456"); // возвращает примитив
+        Double dblD = Double.valueOf("456"); // возвращает ссылочный тип
+        System.out.println(dblP + " | " + dblD);
+
+        System.out.println(Integer.parseInt("123"));
+
+        // toString - переопределен метод, который возвращает строковое представление числа
+        // equals - сравнивает два объекта по значению
+
+        Integer i1 = 127;
+        Integer i2 = 256;
+
+        System.out.println(i1 > i2);
+
+        // compareTo - сравнивает текущий объект с другим объектом
+        // Возвращаемое значение int
+        System.out.println("127.compareTo(256): " + i1.compareTo(i2));
+        System.out.println("256.compareTo(128): " + i2.compareTo(i1));
+        System.out.println("256.compareTo(256): " + i2.compareTo(i2));
+        /*
+         i1 > i2 -> положительное 1
+         i1 < i2 -> отрицательное -1
+         i1 = i2 -> 0
+         */
+
+        System.out.println("\n========================");
+        // xxxValue() -  возвращает значение объекта как примитивный тип
+
+        Double d2 = 125.67; // Автоупаковка
+        d2 = Double.valueOf(125.67); // Явная / принудительная упаковка
+        double dPrimitive = d2; // Автораспаковка
+        dPrimitive = d2.doubleValue(); // Явная / принудительная распаковка
+
+
+        System.out.println("\n=====================");
+
+        /*
+                                                      *
+                                                -----***-----
+                                                      *
+        Абстрактный класс Number. Все числовые обертки наследуются от абстрактного класса Number
+        Byte, Short, Integer, Long, Float, Double
+
+        byteValue()
+        shortValue()
+        intValue()
+        longValue()
+        floatValue()
+        doubleValue()
+         */
+
+        //
+        Integer integer = 31844;
+        double dVal = integer.doubleValue();
+        System.out.println(dVal);
+
+        System.out.println(integer.floatValue());
+        System.out.println(integer.longValue());
+
+        Double dWrapper = 245.78;
+        int iVal = dWrapper.intValue();
+        System.out.println(iVal);
+
+        System.out.println(dWrapper.byteValue()); // Переполненеи типов
+
+
+
 
     }
 }
