@@ -15,7 +15,7 @@ NumericPair<Double> doublePair = new NumericPair<>(5.5, 4.5);
 System.out.println(doublePair.sum()); // Вывод: 10.0
  */
 
-public class NumericPair <T extends Number> {
+public class NumericPair <T extends Number, E extends Number > {
     private T number;
     private T number2;
 

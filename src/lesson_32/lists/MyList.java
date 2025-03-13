@@ -1,6 +1,8 @@
 package lesson_32.lists;
 
-public interface MyList<T> {
+import java.util.Iterator;
+
+public interface MyList<T> extends Iterable<T> {
 
 
     /**

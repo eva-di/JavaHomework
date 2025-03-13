@@ -25,9 +25,17 @@ printTwoLists(names, scores);
  */
 public class PrintTwoLists <U>{
 
-    public static <T, U> void printTwoLists(MyArrayList<T> list1, MyArrayList<U> list2) {
+    public static <T, U> void printTwoLists(MyArrayList<T> list1, MyArrayList<U> list2) { // лучше писать MyList - название интерфейса
+        // Вывожу элементы 1-го списка
+        for (int i = 0; i < list1.size(); i++) {
         System.out.println(list1);
+
+        }
+        // Вывожу элементы второго списка
+        for (int i = 0; i < list2.size(); i++) {
         System.out.println(list2);
+
+        }
 
 
     }

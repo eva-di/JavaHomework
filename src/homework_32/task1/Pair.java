@@ -48,12 +48,18 @@ public class Pair <T> {
         this.secondVal = value;
 
     }
-    void swap() {
+    public void swap() {
         T temp = firstVal;
         firstVal = secondVal;
         secondVal = temp;
 
     }
 
-
+    @Override
+    public String toString() {
+        return "Pair{" +
+                "firstVal=" + firstVal +
+                ", secondVal=" + secondVal +
+                '}';
+    }
 }
