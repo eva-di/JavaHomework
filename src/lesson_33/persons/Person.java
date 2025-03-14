@@ -100,8 +100,7 @@ public class Person {
      */
 
     public boolean isPasswordValid(String password) {
-        if (password.length() < 8) return false;
-
+        boolean isEight = false;
         boolean hasLower = false;
         boolean hasUpper = false;
         boolean hasDigit = false;
@@ -111,13 +110,13 @@ public class Person {
             if (Character.isDigit(ch)) hasDigit = true;
             if (Character.isLowerCase(ch)) hasLower = true;
             if (Character.isUpperCase(ch)) hasUpper = true;
-
+            if (password.length() >= 8) isEight = true;
             if( ch == '!' || ch == '@' || ch == '?' || ch == '№'
             || ch == '%' || ch == '*' || ch == '(' || ch == ')'
                     || ch == '[' || ch == ']' || ch == ','
                     || ch == '.' || ch == '-') hasSpecial = true;
         }
-        if (hasDigit && hasLower && hasUpper && hasSpecial) return true;
+        if (isEight && hasDigit && hasLower && hasUpper && hasSpecial) return true;
         return false;
     }
 
