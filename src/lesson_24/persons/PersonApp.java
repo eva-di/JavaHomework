@@ -13,7 +13,7 @@ public class PersonApp {
         Person john = new Person("John", 75, "Reading, music");
         System.out.println(john.toString());
 
-        Person[] people = new Person[5]; // Создаю массив для 5 ссылок на объекты типа Person
+        Person[] people = new Person[5]; // Создаю массив для 5 ссылок на объекты типа Person34
 
         // Значения по умолчанию для типа данных - null
 

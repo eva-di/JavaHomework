@@ -13,7 +13,7 @@ public class Person {
 
     public String toString(){
         // Формирование строки по шаблону с подставляемыми значениями
-        return String.format("Person: %s, age: %d, hobby: %s", name, age, hobby);
+        return String.format("Person34: %s, age: %d, hobby: %s", name, age, hobby);
     }
 
     public String getName() {

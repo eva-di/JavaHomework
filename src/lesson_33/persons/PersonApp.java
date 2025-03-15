@@ -3,7 +3,7 @@ package lesson_33.persons;
 public class PersonApp {
     public static void main(String[] args) {
 
-//        Person person = new Person("test@mail.net", "password");
+//        Person34 person = new Person34("test@mail.net", "password");
 //
 //        person.setEmail("testmail.net");
 //

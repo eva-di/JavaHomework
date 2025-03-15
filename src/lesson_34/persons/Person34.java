@@ -1,10 +1,10 @@
-package lesson_33.persons;
+package lesson_34.persons;
 
-public class Person {
+public class Person34 {
     private String email;
     private String password;
 
-    public Person(String email, String password) {
+    public Person34(String email, String password) {
         setEmail(email);
         setPassword(password);
     }
@@ -31,6 +31,7 @@ public class Person {
 
      */
     private boolean isEmailValid(String email) {
+        if(email == null) return false;
         // 1. Должна быть 1 @ и только одна
         int indexAt = email.indexOf('@');
         int lastAt = email.lastIndexOf('@');
@@ -82,7 +83,30 @@ public class Person {
         this.password = password;
 
         }
+    }
+    private boolean isPasswordValid(String password) {
+        if (password == null || password.length() < 8) return false;
 
+        boolean isDigit = false;
+        boolean isUpper = false;
+        boolean isLower = false;
+        boolean isSpecial = false;
+
+        // Альтернативный способ объявления переменных
+        boolean [] result = new boolean[4]; // false, false, false, false
+        String symbols = "!№%?*()[],.-";
+        // перебирать символы
+        for (char ch : password.toCharArray()) {
+            if (Character.isDigit(ch)) isDigit = true;
+            if (Character.isUpperCase(ch)) isUpper = true;
+            if (Character.isLowerCase(ch)) isLower = true;
+//            if (symbols.contains(String.valueOf(ch))) isSpecial = true;
+           if (symbols.indexOf(ch) >= 0) isSpecial = true;
+
+        }
+        System.out.printf("%s | %s | %s | %s\n", isDigit, isLower, isUpper, isSpecial);
+        // Если хотяб одна из перемнных остfнется в значеyии false, то весь пароль не будет признан валидным (вернется false)
+        return isDigit && isLower && isUpper && isSpecial;
     }
 
 
@@ -99,26 +123,26 @@ public class Person {
     Пароль будет подходить только если все пять имеют true
      */
 
-    public boolean isPasswordValid(String password) {
-        boolean isEight = false;
-        boolean hasLower = false;
-        boolean hasUpper = false;
-        boolean hasDigit = false;
-        boolean hasSpecial = false;
-
-        for (char ch : password.toCharArray()) {
-            if (Character.isDigit(ch)) hasDigit = true;
-            if (Character.isLowerCase(ch)) hasLower = true;
-            if (Character.isUpperCase(ch)) hasUpper = true;
-            if (password.length() >= 8) isEight = true;
-            if( ch == '!' || ch == '@' || ch == '?' || ch == '№'
-            || ch == '%' || ch == '*' || ch == '(' || ch == ')'
-                    || ch == '[' || ch == ']' || ch == ','
-                    || ch == '.' || ch == '-') hasSpecial = true;
-        }
-        if (isEight && hasDigit && hasLower && hasUpper && hasSpecial) return true;
-        return false;
-    }
+//    public boolean isPasswordValid(String password) {
+//        boolean isEight = false;
+//        boolean hasLower = false;
+//        boolean hasUpper = false;
+//        boolean hasDigit = false;
+//        boolean hasSpecial = false;
+//
+//        for (char ch : password.toCharArray()) {
+//            if (Character.isDigit(ch)) hasDigit = true;
+//            if (Character.isLowerCase(ch)) hasLower = true;
+//            if (Character.isUpperCase(ch)) hasUpper = true;
+//            if (password.length() >= 8) isEight = true;
+//            if( ch == '!' || ch == '@' || ch == '?' || ch == '№'
+//            || ch == '%' || ch == '*' || ch == '(' || ch == ')'
+//                    || ch == '[' || ch == ']' || ch == ','
+//                    || ch == '.' || ch == '-') hasSpecial = true;
+//        }
+//        if (isEight && hasDigit && hasLower && hasUpper && hasSpecial) return true;
+//        return false;
+//    }
 
 
 
