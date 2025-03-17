@@ -104,7 +104,7 @@ public class Person {
            if (symbols.indexOf(ch) >= 0) isSpecial = true;
 
         }
-        System.out.printf("%s | %s | %s | %s\n", isDigit, isLower, isUpper, isSpecial);
+        //  System.out.printf("%s | %s | %s | %s\n", isDigit, isLower, isUpper, isSpecial);
         // Если хотяб одна из перемнных остfнется в значеyии false, то весь пароль не будет признан валидным (вернется false)
         return isDigit && isLower && isUpper && isSpecial;
     }

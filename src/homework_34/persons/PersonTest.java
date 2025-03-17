@@ -59,6 +59,7 @@ public class PersonTest {
         System.out.println("Ввожу неверный email: " + invalidEmail);
         System.out.println("Текущий email после setEmail: " + person.getEmail());
         Assertions.assertNotEquals(invalidEmail, person.getEmail());
+        Assertions.assertEquals(startEmail, person.getEmail());
     }
 
     static Stream<String> testInvalidEmail() {
