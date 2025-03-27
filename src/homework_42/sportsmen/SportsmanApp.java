@@ -46,10 +46,10 @@ public class SportsmanApp {
 
     }
 
-    public static void printSportsmen(Sportsman[] sporstmen) {
+    public static void printSportsmen(Sportsman[] sportsmen) {
 
         System.out.println("===============================================");
-        for (Sportsman sportsman : sporstmen)
+        for (Sportsman sportsman : sportsmen)
             System.out.println(sportsman);
         System.out.println("===============================================\n");
     }
