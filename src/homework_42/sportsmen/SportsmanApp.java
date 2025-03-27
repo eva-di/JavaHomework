@@ -43,6 +43,8 @@ public class SportsmanApp {
 //
 //        printSportsmen(sportsmen);
 
+        // НАДО ДОПИСАТЬ с лямбдой!!! Arrays.sort(ssp1, sp2) -> Integer.compare(s1.getAge(), s2.getAge());
+
 
 
     }
