@@ -8,11 +8,11 @@ public class SportsmanApp {
 
         Sportsman[] sportsmen = new Sportsman[5];
 
-        sportsmen[0] = new Sportsman("Viktor", 25, 25);
-        sportsmen[1] = new Sportsman("David", 19, 45);
-        sportsmen[2] = new Sportsman("John", 28, 49);
-        sportsmen[3] = new Sportsman("Patrick", 20, 45);
-        sportsmen[4] = new Sportsman("Alex", 26, 47);
+        sportsmen[0] = new Sportsman("Viktor", 25, 25.5);
+        sportsmen[1] = new Sportsman("David", 19, 45.6);
+        sportsmen[2] = new Sportsman("John", 28, 49.0);
+        sportsmen[3] = new Sportsman("Patrick", 20, 45.6);
+        sportsmen[4] = new Sportsman("Alex", 26, 47.6);
 
         printSportsmen(sportsmen);
 
@@ -22,6 +22,7 @@ public class SportsmanApp {
         SportsmenScoreComparator spScCom = new SportsmenScoreComparator();
 
         Arrays.sort(sportsmen, spScCom);
+       //можно сразу передать новый объект в качестве второго параметра: Arrays.sort(sportsmen, new SportsmenScoreComparator());
         printSportsmen(sportsmen);
 
         Arrays.sort(sportsmen, new Comparator<Sportsman>() {
