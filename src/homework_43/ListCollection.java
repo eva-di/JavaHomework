@@ -20,11 +20,12 @@ public class ListCollection {
         List<Integer> commonElements = commonElements(list1, list2);
 
         System.out.println("List of common elements: " + commonElements);
+        System.out.println(commonElements(list2, list1));
 
     }
-    public static List<Integer> commonElements(List<Integer> list1, List<Integer> list2) {
+    public static <T> List<T> commonElements(List<T> list1, List<T> list2) {
 
-        List<Integer> result = new ArrayList<>(list1);
+        List<T> result = new ArrayList<>(list1);
         result.retainAll(list2);
         return result;
 
