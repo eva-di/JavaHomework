@@ -41,23 +41,23 @@ public class SetUtils {
 
     /* Реализуйте метод union(Set<String> set1, Set<String> set2), который возвращает множество,
     содержащее все уникальные элементы из обоих множеств (объединение множеств). */
-    public static Set<String> union(Set<String> set1, Set<String> set2) {
+    public static <T> Set<T> union(Set<T> set1, Set<T> set2) {
 
-        Set<String> result = new HashSet<>(set1);
+        Set<T> result = new HashSet<>(set1);
         result.addAll(set2);
         return result;
     }
    /* Реализуйте метод intersection(Set<String> set1, Set<String> set2),
     который возвращает множество, содержащее только элементы, которые присутствуют в обоих исходных множествах (пересечение множеств).*/
-    public static Set<String> intersection(Set<String> set1, Set<String> set2) {
-        Set<String> result = new HashSet<>(set1);
+    public static <T>Set<T> intersection(Set<T> set1, Set<T> set2) {
+        Set<T> result = new HashSet<>(set1);
         result.retainAll(set2);
         return result;
     }
     /* Реализуйте метод difference(Set<String> set1, Set<String> set2), который возвращает множество элементов,
     которые есть в первом множестве, но отсутствуют во втором (разность множеств).*/
-    public static Set<String> difference(Set<String> set1, Set<String> set2) {
-        Set<String> result = new HashSet<>(set1);
+    public static <T> Set<T> difference(Set<T> set1, Set<T> set2) {
+        Set<T> result = new HashSet<>(set1);
         result.removeAll(set2);
         return result;
     }

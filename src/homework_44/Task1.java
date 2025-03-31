@@ -20,23 +20,35 @@ public static void main(String[] args) {
 
 }
 
-    public static List<String> getUniqueSortedWords(String testString) {
+    public static List<String> getUniqueSortedWords(String string) {
 
-        String newString = testString.replaceAll("[^a-zA-Zа-яА-я0-9 ]", "");
-       // System.out.println("newString: " + newString);
-        String[] words = newString.split("\\s+");
+    /*
+    1. Избавиться от знаком препинания
+    2. Разбить строку на слова (массив/ список слов)
+    3. Поместить в коллекцию, которая обеспечит уникальность и сортировку (SortedSet)
+    4. Преобразовать результат в список
+     */
+
+        String[] words = string.replaceAll("[^a-zA-Zа-яА-я0-9 ]", "").split("\\s+");
+//        String newString = string.replaceAll("[^a-zA-Zа-яА-я0-9 ]", "");
+//        System.out.println("newString: " + newString);
+//        String[] words = newString.split("\\s+");
 
         List<String> list = Arrays.asList(words);
+        Set<String> uniqueWords = new TreeSet<>(Comparator.comparing(String::length).thenComparing(Comparator.naturalOrder()));
+        uniqueWords.addAll(Arrays.asList(words));
+        return new ArrayList<>(uniqueWords);
+
         // System.out.println(list);
 
-        Set<String> uniqueWords = new HashSet<>(Arrays.asList(words));
+//        Set<String> uniqueWords = new HashSet<>(Arrays.asList(words));
 
-        List<String> sortedWords = new ArrayList<>(uniqueWords);
-        sortedWords.sort(Comparator.comparingInt(String::length).thenComparing(Comparator.naturalOrder()));
+//        List<String> sortedWords = new ArrayList<>(uniqueWords);
+//        sortedWords.sort(Comparator.comparingInt(String::length).thenComparing(Comparator.naturalOrder()));
 
        // System.out.println(sortedWords);
 
-        return sortedWords;
+//        return sortedWords;
 
 
 
