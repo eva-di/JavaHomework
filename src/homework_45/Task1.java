@@ -18,9 +18,10 @@ public class Task1 {
     }
 
     public static Map<String, Integer> getWordFrequency(String text) {
-        Map<String, Integer> wordMap = new HashMap<>();
 
         String[] words = text.toLowerCase().replaceAll("[^а-яa-z ]", "").split("\\s+");
+
+        Map<String, Integer> wordMap = new HashMap<>();
 
         for (String word : words) {
             if (!word.isEmpty()) {
