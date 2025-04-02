@@ -2,6 +2,7 @@ package homework_46;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /*
 Task 1
@@ -46,13 +47,15 @@ public class Intersection {
     }
 
     private static Map<String, Integer> intersection(Map<String, Integer> map1, Map<String, Integer> map2) {
-        Map<String, Integer> result = new HashMap<>();
+        Map<String, Integer> result = new HashMap<>(map1);
+        Set<String> keySet1 = result.keySet();
+        keySet1.retainAll(map2.keySet());
 
-        for (String key : map1.keySet()) {
-            if (map2.containsKey(key)) {
-                result.put(key, map1.get(key));
-            }
-        }
+//        for (String key : map1.keySet()) {
+//            if (map2.containsKey(key)) {
+//                result.put(key, map1.get(key));
+//            }
+//        }
         return result;
     }
 
