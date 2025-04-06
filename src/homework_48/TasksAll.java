@@ -45,6 +45,21 @@ Task 3
                 .filter(Objects::nonNull)
                 .min(Comparator.comparing(String::length));
         System.out.println(shortestString);
+
+        // Методы Optional
+        // isPresent() - если в Optional что-то есть - выполняется переданное действие
+        // ifPresentOrElse - если значение есть, выполняется первое действие (дадут значение
+        // если пусто - выполняется второе действие
+
+        shortestString.ifPresent(str -> System.out.println(str));
+    //    shortestString.ifPresent(System.out::println);
+
+        shortestString.ifPresentOrElse(
+                str -> System.out.println("нашли: " + str),
+                () -> strings.indexOf("Ничего не нашли")
+        );
+
+
     }
 
     private static void sortedIntegers() {
